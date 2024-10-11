@@ -1,0 +1,55 @@
+1. Table Produit
+Attributs :
+ID_Produit (clé primaire)
+Nom_Produit
+Type_Produit (haut-parleur, laser, canon à confettis, etc.)
+Marque
+Puissance / Spécification (ex. : watts pour les haut-parleurs)
+Prix_HT
+Prix_TTC
+Quantité_Stock
+2. Table Client
+Attributs :
+ID_Client (clé primaire)
+Nom_Client
+Adresse
+Ville
+Code_Postal
+Pays
+Email
+Téléphone
+3. Table Fournisseur
+Attributs :
+ID_Fournisseur (clé primaire)
+Nom_Fournisseur
+Adresse
+Ville
+Code_Postal
+Pays
+Email
+Téléphone
+4. Table Location
+Attributs :
+ID_Location (clé primaire)
+Date_Debut_Location
+Date_Fin_Location
+Montant_Total
+ID_Client (clé étrangère, référence à la table Client)
+ID_Produit (clé étrangère, référence à la table Produit)
+5. Table Produit_Fournisseur (table d'association)
+Attributs :
+ID_Fournisseur (clé étrangère, référence à la table Fournisseur)
+ID_Produit (clé étrangère, référence à la table Produit)
+Prix_Achat
+Date_Achat
+6. Table Stock
+Attributs :
+ID_Stock (clé primaire)
+ID_Produit (clé étrangère, référence à la table Produit)
+Quantité_Disponible
+Localisation_Stock (entrepôt)
+7. Table Pays_Client (pour une gestion des clients internationaux)
+Attributs :
+ID_Pays (clé primaire)
+Nom_Pays
+Continent
