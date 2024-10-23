@@ -1,3 +1,4 @@
+/*Ce script n'est pas abouti et contient des erreurs (!!!)*/
 /*ajouter des contraintes de tbales*/
 /*rajouter #idlocation dans produit MLD*/
 
@@ -44,9 +45,9 @@ CREATE TABLE Client(
     rue varchar(30),
     codePostal numeric(6),
     ville varchar(30),
-    pays varchar(30)
+    pays varchar(30),
     noTel numeric(20),
-    email varchar(30),
+    email varchar(30)
 );
 
 CREATE TABLE Location(
