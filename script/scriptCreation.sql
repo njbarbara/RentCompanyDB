@@ -40,7 +40,7 @@ CREATE TABLE Stock(
 );
 
 CREATE TABLE Client(
-    idClients varchar(30) PRIMARY KEY,
+    idClient varchar(30) PRIMARY KEY,
     nomClient varchar(30),
     rue varchar(30),
     codePostal numeric(6),
