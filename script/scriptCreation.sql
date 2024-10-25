@@ -5,7 +5,7 @@
 DROP TABLE Possede;
 DROP TABLE Fournit;
 DROP TABLE Appartient;
-DROP TABLE Produits;
+DROP TABLE Produit;
 DROP TABLE Location;
 DROP TABLE Client;
 DROP TABLE Stock;
@@ -55,11 +55,12 @@ CREATE TABLE Location(
     dateDebut date NOT NULL,
     dateFin date, 
     prix numeric(6,2) NOT NULL,
+    idClient varchar(30),
     FOREIGN KEY (idClient) REFERENCES Client(idClient)
 );
 
 /*quantité ?*/
-CREATE TABLE Produits(
+CREATE TABLE Produit(
     idProduit varchar(30) PRIMARY KEY,
     nomProduit varchar(30),
     typeProduit varchar(30),
@@ -67,6 +68,7 @@ CREATE TABLE Produits(
     reference varchar(30),
     prix numeric(6,2),
     quantite numeric(5),
+    idLocation varchar(30),
     FOREIGN KEY (idLocation) REFERENCES Location(idLocation)
 );
 
@@ -74,7 +76,7 @@ CREATE TABLE Appartient(
     idProduit varchar(30),
     idStock varchar(30),
     PRIMARY KEY(idProduit, idStock),
-    FOREIGN KEY (idProduit) REFERENCES Produits(idProduit),
+    FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idStock) REFERENCES Stock(idStock)
 );
 
@@ -82,7 +84,7 @@ CREATE TABLE Fournit(
     idFournisseur varchar(30),
     idProduit varchar(30),
     PRIMARY KEY(idProduit, idFournisseur),
-    FOREIGN KEY (idProduit) REFERENCES Produits(idProduit),
+    FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur)
 );
 
@@ -90,7 +92,7 @@ CREATE TABLE Possede(
     idProduit varchar(30),
     idSpecifite varchar(30),
     PRIMARY KEY(idProduit, idSpecifite),
-    FOREIGN KEY (idProduit) REFERENCES Produits(idProduit),
+    FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idSpecifite) REFERENCES Specificite(idSpecifite)
 );
 
