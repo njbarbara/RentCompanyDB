@@ -1,4 +1,4 @@
-/*Ce script n'est pas abouti et contient des erreurs (!!!)*/
+/*Ce script n'est pas abouti et contient peut-être des erreurs (!!!)*/
 /*ajouter des contraintes de tbales*/
 /*rajouter #idlocation dans produit MLD*/
 
@@ -14,40 +14,40 @@ DROP TABLE Fournisseur;
 
 CREATE TABLE Fournisseur(
     idFournisseur varchar(30) PRIMARY KEY,
-    nomFournisseur varchar(30),
-    codePostal numeric(6),
+    nomFournisseur varchar(30) NOT NULL,
+    codePostal numeric(6) NOT NULL,
     ville varchar(30),
-    pays varchar(30),
-    email varchar(30),
-    rue varchar(30),
-    noTel numeric(20)
+    pays varchar(30) NOT NULL,
+    email varchar(30) NOT NULL,
+    rue varchar(30) NO NULL,
+    noTel numeric(20) NOT NULL
 );
 
 CREATE TABLE Specificite(
     idSpecifite varchar(30) PRIMARY KEY,
-    puissanceSonore numeric(6,2),
-    amperage numeric(6,2),
-    puissanceLumineuse numeric(6,2)
+    puissanceSonore numeric(6,2) DEFAULT 0,
+    amperage numeric(6,2) DEFAULT 0,
+    puissanceLumineuse numeric(6,2) DEFAULT 0
 );
 
 CREATE TABLE Stock(
     idStock varchar(30) PRIMARY KEY,
-    quantiteDisponible numeric(10),
+    quantiteDisponible numeric(10) DEFAULT 0,
     rue varchar(30),
-    codePostal numeric(6),
-    ville varchar(30),
-    pays varchar(30)
+    codePostal numeric(6) NOT NULL,
+    ville varchar(30) NOT NULL,
+    pays varchar(30) NOT NULL
 );
 
 CREATE TABLE Client(
     idClient varchar(30) PRIMARY KEY,
-    nomClient varchar(30),
-    rue varchar(30),
-    codePostal numeric(6),
-    ville varchar(30),
-    pays varchar(30),
-    noTel numeric(20),
-    email varchar(30)
+    nomClient varchar(30) NOT NULL,
+    rue varchar(30) NOT NULL,
+    codePostal numeric(6) NOT NULL,
+    ville varchar(30) NOT NULL,
+    pays varchar(30) NOT NULL,
+    noTel numeric(20) NOT NULL,
+    email varchar(30) NOT NULL
 );
 
 CREATE TABLE Location(
@@ -62,13 +62,13 @@ CREATE TABLE Location(
 /*quantité ?*/
 CREATE TABLE Produit(
     idProduit varchar(30) PRIMARY KEY,
-    nomProduit varchar(30),
-    typeProduit varchar(30),
-    marque varchar(30),
-    reference varchar(30),
-    prix numeric(6,2),
-    quantite numeric(5),
-    idLocation varchar(30),
+    nomProduit varchar(30) NOT NULL,
+    typeProduit varchar(30) NOT NULL,
+    marque varchar(30) NOT NULL,
+    reference varchar(30) NOT NULL,
+    prix numeric(6,2) NOT NULL,
+    quantite numeric(5) CHECK (quantite > 0),
+    idLocation varchar(30) NOT NULL,
     FOREIGN KEY (idLocation) REFERENCES Location(idLocation)
 );
 
