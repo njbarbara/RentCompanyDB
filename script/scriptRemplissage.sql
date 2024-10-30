@@ -1,1 +1,0 @@
-/*Ce script n'est pas abouti et contient peut-être des erreurs (!!!)*/

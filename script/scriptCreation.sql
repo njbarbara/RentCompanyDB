@@ -1,7 +1,3 @@
-/*Ce script n'est pas abouti et contient peut-être des erreurs (!!!)*/
-/*ajouter des contraintes de tbales*/
-/*rajouter #idlocation dans produit MLD*/
-
 DROP TABLE Possede;
 DROP TABLE Fournit;
 DROP TABLE Appartient;
@@ -12,26 +8,42 @@ DROP TABLE Stock;
 DROP TABLE Specificite;
 DROP TABLE Fournisseur;
 
+/*
+Modif : 
+- tous les id sont des char
+- ajout de la date dans la table fournir
+- num de tel pas nécessaire
+*/
+
+/*
+A faire : 
+- ajouter date à la table fournir sur le mcd
+- retirer la quantité au produit sur le mcd
+- continuer les insertions
+- ajout de contraintes (supplémentaires)
+*/
+
 CREATE TABLE Fournisseur(
-    idFournisseur varchar(30) PRIMARY KEY,
-    nomFournisseur varchar(30) NOT NULL,
+    idFournisseur char(10) PRIMARY KEY,
+    nomFournisseur varchar(30) NOT NULL UNIQUE,
     codePostal numeric(6) NOT NULL,
     ville varchar(30),
     pays varchar(30) NOT NULL,
     email varchar(30) NOT NULL,
     rue varchar(30) NO NULL,
-    noTel numeric(20) NOT NULL
+    noTel numeric(20)
 );
 
 CREATE TABLE Specificite(
-    idSpecifite varchar(30) PRIMARY KEY,
+    idSpecifite char(10) PRIMARY KEY,
     puissanceSonore numeric(6,2) DEFAULT 0,
     amperage numeric(6,2) DEFAULT 0,
     puissanceLumineuse numeric(6,2) DEFAULT 0
 );
 
+/*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Stock(
-    idStock varchar(30) PRIMARY KEY,
+    idStock char(10) PRIMARY KEY,
     quantiteDisponible numeric(10) DEFAULT 0,
     rue varchar(30),
     codePostal numeric(6) NOT NULL,
@@ -40,56 +52,57 @@ CREATE TABLE Stock(
 );
 
 CREATE TABLE Client(
-    idClient varchar(30) PRIMARY KEY,
-    nomClient varchar(30) NOT NULL,
+    idClient char(10) PRIMARY KEY,
+    nomClient varchar(30) NOT NULL UNIQUE,
     rue varchar(30) NOT NULL,
     codePostal numeric(6) NOT NULL,
     ville varchar(30) NOT NULL,
     pays varchar(30) NOT NULL,
-    noTel numeric(20) NOT NULL,
+    noTel numeric(20),
     email varchar(30) NOT NULL
 );
 
 CREATE TABLE Location(
-    idLocation varchar(30) PRIMARY KEY,
+    idLocation char(20) PRIMARY KEY,
     dateDebut date NOT NULL,
     dateFin date, 
     prix numeric(6,2) NOT NULL,
-    idClient varchar(30),
+    idClient char(10),
     FOREIGN KEY (idClient) REFERENCES Client(idClient)
 );
 
-/*quantité ?*/
+/*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Produit(
-    idProduit varchar(30) PRIMARY KEY,
+    idProduit char(20) PRIMARY KEY,
     nomProduit varchar(30) NOT NULL,
     typeProduit varchar(30) NOT NULL,
     marque varchar(30) NOT NULL,
     reference varchar(30) NOT NULL,
     prix numeric(6,2) NOT NULL,
     quantite numeric(5) CHECK (quantite > 0),
-    idLocation varchar(30) NOT NULL,
+    idLocation char(20),
     FOREIGN KEY (idLocation) REFERENCES Location(idLocation)
 );
 
 CREATE TABLE Appartient(
-    idProduit varchar(30),
-    idStock varchar(30),
+    idProduit char(20),
+    idStock char(10),
     PRIMARY KEY(idProduit, idStock),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idStock) REFERENCES Stock(idStock)
 );
 
 CREATE TABLE Fournit(
-    idFournisseur varchar(30),
-    idProduit varchar(30),
+    idFournisseur char(10),
+    idProduit char(20),
+    DateFournit date,
     PRIMARY KEY(idProduit, idFournisseur),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur)
 );
 
 CREATE TABLE Possede(
-    idProduit varchar(30),
+    idProduit char(10),
     idSpecifite varchar(30),
     PRIMARY KEY(idProduit, idSpecifite),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
