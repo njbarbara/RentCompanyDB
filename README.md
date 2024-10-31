@@ -7,7 +7,7 @@
 ## 📚 Langage utilisé 
 * **SQL** 
 
-## Répartition des insertions : 
+## 💼 Répartition des insertions : 
 
 Najib : 
  * Fournisseur 
