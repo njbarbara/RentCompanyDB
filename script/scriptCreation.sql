@@ -44,7 +44,6 @@ CREATE TABLE Specificite(
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Stock(
     idStock char(10) PRIMARY KEY,
-    quantiteDisponible numeric(10) DEFAULT 0,
     rue varchar(30),
     codePostal numeric(6) NOT NULL,
     ville varchar(30) NOT NULL,
@@ -79,7 +78,6 @@ CREATE TABLE Produit(
     marque varchar(30) NOT NULL,
     reference varchar(30) NOT NULL,
     prix numeric(6,2) NOT NULL,
-    quantite numeric(5) CHECK (quantite > 0),
     idLocation char(20),
     FOREIGN KEY (idLocation) REFERENCES Location(idLocation)
 );
