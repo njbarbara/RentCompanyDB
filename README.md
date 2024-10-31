@@ -6,3 +6,19 @@
 * **Compte-rendu Eco :** _https://docs.google.com/document/d/1C-C4wyvgMIE2eo_8JJQQHvWrwBbnIK-7udp8lHyhtnA/edit?usp=sharing_
 ## 📚 Langage utilisé 
 * **SQL** 
+
+## Répartition des insertions : 
+
+Najib : 
+ * Fournisseur 
+ * Produit 
+ * Fournit
+ * Stock
+Aron : 
+ * Spécificité 
+ * Client
+ * Possède
+
+Cyril :
+  
+Noah : 
