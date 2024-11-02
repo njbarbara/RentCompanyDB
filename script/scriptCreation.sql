@@ -26,7 +26,7 @@ A faire :
 CREATE TABLE Fournisseur(
     idFournisseur char(10) PRIMARY KEY,
     nomFournisseur varchar(30) NOT NULL UNIQUE,
-    codePostal numeric(6) NOT NULL,
+    codePostal numeric(6),
     ville varchar(30),
     pays varchar(30) NOT NULL,
     email varchar(30) NOT NULL,
