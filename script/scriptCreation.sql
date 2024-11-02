@@ -30,7 +30,7 @@ CREATE TABLE Fournisseur(
     ville varchar(30),
     pays varchar(30) NOT NULL,
     email varchar(30) NOT NULL,
-    rue varchar(30) NO NULL,
+    rue varchar(30) NOT NULL,
     noTel numeric(20)
 );
 
