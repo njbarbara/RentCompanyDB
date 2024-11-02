@@ -26,7 +26,7 @@ A faire :
 CREATE TABLE Fournisseur(
     idFournisseur char(10) PRIMARY KEY,
     nomFournisseur varchar(30) NOT NULL UNIQUE,
-    codePostal numeric(6),
+    codePostal numeric(10),
     ville varchar(30),
     pays varchar(30) NOT NULL,
     email varchar(30) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE Specificite(
 CREATE TABLE Stock(
     idStock char(10) PRIMARY KEY,
     rue varchar(30),
-    codePostal numeric(6) NOT NULL,
+    codePostal numeric(10),
     ville varchar(30) NOT NULL,
     pays varchar(30) NOT NULL
 );
@@ -54,7 +54,7 @@ CREATE TABLE Client(
     idClient char(10) PRIMARY KEY,
     nomClient varchar(30) NOT NULL UNIQUE,
     rue varchar(30) NOT NULL,
-    codePostal numeric(6) NOT NULL,
+    codePostal numeric(10),
     ville varchar(30) NOT NULL,
     pays varchar(30) NOT NULL,
     noTel numeric(20),
