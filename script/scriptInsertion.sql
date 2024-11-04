@@ -17,3 +17,19 @@ INSERT INTO Stock VALUES
 ('FRS00001', '1 rue Lamartine', 63100, 'Clermont-Fd', 'France'),
 ('FRS00002', '6 rue Jean-Jaurès', 70123, 'Paris', 'France'),
 ('FRS00003'),
+
+
+
+INSERT INTO Client VALUES
+('BEC00001', 'WeAreOne.World BVBA', 'Korte Vlierstraat 6', NULL, 'Antwerpen', 3232424400, 'info@tomorrowland.com'),
+('HUC00001', 'Sziget Festival', 'Óbudai-sziget', NULL, 'Budapest', 'Hongrie', 36123456789, 'info@szigetfestival.com'),
+('USC00001', 'Coachella Music Fest', 'Empire Polo Club', NULL, 'Indio', 'États-Unis', 17605830123, 'info@coachella.com'),
+('UKC00001', 'Glastonbury Fest', 'Worthy Farm', NULL, 'Pilton', 'Royaume-Uni', 441174880300, 'info@glastonburyfestivals.co.uk'),
+('ESC00001', 'Primavera Sound', 'Carrer de Bilbao 10', NULL, 'Barcelona', 'Espagne', 34934123456, 'info@primaverasound.com'),
+('USC00002', 'Burning Man', 'Black Rock Desert', NULL, 'Gerlach', 'États-Unis', 17757440100, 'info@burningman.org'),
+('BRC00001', 'Rock in Rio', 'Cidade do Rock', NULL, 'Rio de Janeiro', 'Brésil', 552121440000, 'info@rockinrio.com'),
+('BEC00002', 'Pukkelpop', 'Kempische Steenweg', NULL, 'Hasselt', 'Belgique', 32478513000, 'info@pukkelpop.be'),
+('JPC00001', 'Fuji Rock Festival', 'Naeba Ski Resort', NULL, 'Yuzawa', 'Japon', 8131234000, 'info@fujirockfestival.com'),
+('USC00003', 'Lollapalooza', 'Grant Park', NULL, 'Chicago', 'États-Unis', 17734440600, 'info@lollapalooza.com'),
+('FRC00001', 'Hellfest Productions', 'Rue du Champ Louet', 44190, 'Clisson', 'France', 330251887950, 'info@hellfest.fr'),
+('GEC00011', 'Wacken Open Air', 'Hauptstraße', NULL, 'Wacken', 'Allemagne', 494822110, 'info@wacken.com');
