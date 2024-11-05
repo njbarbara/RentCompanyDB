@@ -29,9 +29,10 @@ CREATE TABLE Fournisseur(
     codePostal numeric(10),
     ville varchar(30),
     pays varchar(30) NOT NULL,
-    email varchar(30) NOT NULL,
+    email varchar(30),
     rue varchar(30) NOT NULL,
-    noTel numeric(20)
+    noTel numeric(20),
+    CHECK(noTel IS NOT NULL OR email IS NOT NULL)
 );
 
 CREATE TABLE Specificite(
@@ -58,13 +59,15 @@ CREATE TABLE Client(
     ville varchar(30) NOT NULL,
     pays varchar(30) NOT NULL,
     noTel numeric(20),
-    email varchar(30) NOT NULL
+    email varchar(30),
+    CHECK(noTel IS NOT NULL OR email IS NOT NULL)
+
 );
 
 CREATE TABLE Location(
     idLocation char(20) PRIMARY KEY,
     dateDebut date NOT NULL,
-    dateFin date, 
+    dateFin date NOT NULL, 
     prix numeric(6,2) NOT NULL,
     idClient char(10),
     FOREIGN KEY (idClient) REFERENCES Client(idClient)
