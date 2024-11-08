@@ -24,7 +24,7 @@ A faire :
 */
 
 CREATE TABLE Fournisseur(
-    idFournisseur char(10) PRIMARY KEY,
+    idFournisseur char(8) PRIMARY KEY,
     nomFournisseur varchar(30) NOT NULL UNIQUE,
     codePostal numeric(10),
     ville varchar(30),
@@ -44,7 +44,7 @@ CREATE TABLE Specificite(
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Stock(
-    idStock char(10) PRIMARY KEY,
+    idStock char(8) PRIMARY KEY,
     rue varchar(30),
     codePostal numeric(10),
     ville varchar(30) NOT NULL,
@@ -52,30 +52,30 @@ CREATE TABLE Stock(
 );
 
 CREATE TABLE Client(
-    idClient char(10) PRIMARY KEY,
+    idClient char(8) PRIMARY KEY,
     nomClient varchar(30) NOT NULL UNIQUE,
     rue varchar(30) NOT NULL,
     codePostal numeric(10),
     ville varchar(30) NOT NULL,
     pays varchar(30) NOT NULL,
     noTel numeric(20),
-    email varchar(30),
+    email varchar(40),
     CHECK(noTel IS NOT NULL OR email IS NOT NULL)
 
 );
 
 CREATE TABLE Location(
-    idLocation char(20) PRIMARY KEY,
+    idLocation char(8) PRIMARY KEY,
     dateDebut date NOT NULL,
     dateFin date NOT NULL, 
-    prix numeric(6,2) NOT NULL,
+    prix numeric(7,2) NOT NULL,
     idClient char(10),
     FOREIGN KEY (idClient) REFERENCES Client(idClient)
-);
+); 
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Produit(
-    idProduit char(20) PRIMARY KEY,
+    idProduit char(8) PRIMARY KEY,
     nomProduit varchar(30) NOT NULL,
     typeProduit varchar(30) NOT NULL,
     marque varchar(30) NOT NULL,
@@ -86,16 +86,16 @@ CREATE TABLE Produit(
 );
 
 CREATE TABLE Appartient(
-    idProduit char(20),
-    idStock char(10),
+    idProduit char(8),
+    idStock char(8),
     PRIMARY KEY(idProduit, idStock),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idStock) REFERENCES Stock(idStock)
 );
 
 CREATE TABLE Fournit(
-    idFournisseur char(10),
-    idProduit char(20),
+    idFournisseur char(8),
+    idProduit char(8),
     DateFournit date,
     PRIMARY KEY(idProduit, idFournisseur),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
@@ -103,8 +103,8 @@ CREATE TABLE Fournit(
 );
 
 CREATE TABLE Possede(
-    idProduit char(10),
-    idSpecifite varchar(30),
+    idProduit char(8),
+    idSpecifite varchar(8),
     PRIMARY KEY(idProduit, idSpecifite),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idSpecifite) REFERENCES Specificite(idSpecifite)
