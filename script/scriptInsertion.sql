@@ -36,3 +36,16 @@ INSERT INTO Client VALUES
 
 INSERT INTO Spécificité VALUES
 ('SPE00001', )
+
+
+
+INSERT INTO Produit VALUES
+('PRD00001', 'Flexible Array F1 modèle 812', 'Enceinte ', 'Bose', 1349.00, ''),
+('PRD00002', 'HeavyFog2000C', 'Machine à fumer', 'SparklersClub', 899.00, ''),
+('PRD00003', 'K3', 'Enceinte', 'L-acoustics', 20000.00, ''),
+('PRD00004', 'CSD-R7 Demo', 'Table de mixage', 'Yamaha', 70000.00, ''),
+('PRD00005', 'MA Lighting grandMA3 full-size', 'Console de éclairage', 'MA Lightning', 64690.00, ''),
+('PRD00006', 'FLX S48 1024 canaux console DMX', 'Console de éclairage', 'Zero 88', 3055.00, ''),
+('PRD00007', 'Midi-B FX', 'éclairage', 'CLAYPAKY', 1500.00, '')
+('PRD00008', 'HY B-Eye K25 / TEATRO', 'éclairage', 'CLAYPAKY', 1400.00, '');
+
