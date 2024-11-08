@@ -35,6 +35,7 @@ INSERT INTO Client VALUES
 ('FRC00001', 'Hellfest Productions', 'Rue du Champ Louet', 44190, 'Clisson', 'France', 330251887950, 'info@hellfest.fr'),
 ('GEC00011', 'Wacken Open Air', 'Hauptstraße', NULL, 'Wacken', 'Allemagne', 494822110, 'info@wacken.com');
 
+
 INSERT INTO location VALUES
 ('LCFR0001', '0224-06-25', '2024-07-02', 01567.89, 'FRC00001'),
 ('LCUS0005', '2020-09-05', '2024-09-05', 99999.99, 'USC00001'),
@@ -42,4 +43,14 @@ INSERT INTO location VALUES
 ('LCJP0001', '2024-12-30', '2025-01-03', 02789.12, 'JPC00001'),
 ('LCHU0002', '2024-05-01', '2024-06-01', 49396.78, 'HUC00001'),
 ('LCBR0006', '2024-03-12', '2024-05-07', 02479.15, 'BRC00001');
+
+
+INSERT INTO Produit VALUES
+('P001', 'Enceinte', 'Sonorisation', 'Bose', 'EN-100', 150.00, 'LCGE0004'),
+('P002', 'Canon à fumée', 'Effets spéciaux', 'SmokeMaster', 'CF-200', 300.00, 'LCUS0005'),
+('P003', 'Projecteur LED', 'Éclairage', 'Philips', 'PJ-300', 200.00, 'LCHU0002'),
+('P004', 'Table de mixage', 'Sonorisation', 'Pioneer', 'TM-400', 500.00, 'LCHU0002'),
+('P005', 'Micro sans fil', 'Sonorisation', 'Shure', 'MS-500', 120.00, 'LCFR0001'),
+('P006', 'Machine à bulles', 'Effets spéciaux', 'BubblePro', 'MB-600', 180.00, 'LCBR0006'),
+('P006', 'Machine à mousse', 'Effets spéciaux', 'Foamtastik', 'MR-260', 180.00, 'LCJP0001');
 
