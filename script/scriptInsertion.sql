@@ -43,6 +43,6 @@ INSERT INTO Produit VALUES
 ('P003', 'Projecteur LED', 'Éclairage', 'Philips', 'PJ-300', 200.00, ''),
 ('P004', 'Table de mixage', 'Sonorisation', 'Pioneer', 'TM-400', 500.00, ''),
 ('P005', 'Micro sans fil', 'Sonorisation', 'Shure', 'MS-500', 120.00, ''),
-('P006', 'Machine à bulles', 'Effets spéciaux', 'BubblePro', 'MB-600', 180.00, '');
-
+('P006', 'Machine à bulles', 'Effets spéciaux', 'BubblePro', 'MB-600', 180.00, ''),
+('P006', 'Machine à mousse', 'Effets spéciaux', 'Foamtastik', 'MR-260', 180.00, '');
 
