@@ -12,12 +12,18 @@ INSERT INTO Fournisseur VALUES
 ('CNF00001', 'Toronto Evenement', NULL, 'Toronto', 'Canada', 'torontoEvenement@gmail.com', 'Yonge Street', 5556040123),
 ('JPF00001', 'Tokyo Disco', 1000001, 'Tokyo', 'Japon', 'tokyoDisco@gmail.com', 'Yanaka Ginza', 0312345678);
 
-/*
 INSERT INTO Stock VALUES 
 ('FRS00001', '1 rue Lamartine', 63100, 'Clermont-Fd', 'France'),
 ('FRS00002', '6 rue Jean-Jaurès', 70123, 'Paris', 'France'),
-('FRS00003'),
-*/
+('BES00001', '5 rue des Bouchers', 1050, 'Bruxelles', 'Belgique'),
+('HUS00001', 'Széchenyi', 1207, 'Budapest', 'Hongrie'),
+('USS00001', 'Salt lake street', 92201, 'Indio', 'Etats-unis'),
+('UKS00001', 'Brick lane', 25032, 'Londres', 'Royaume-Uni'),
+('ESS00001', 'Las Ramblas ', 28001, 'Madrid', 'Espagne'),
+('USS00002', 'Main Street', 89412, 'Gerlach', 'États-Unis'),
+('BRS00001', 'Avenida Rio Branco', 05407, 'Rio de Janeiro', 'Brésil'),
+('JPS00001', 'Jingu-dori', 1000020, 'Tokyo', 'Japon'),
+('GES00011', 'Kurfürstendamm Straße', 10115, 'Berlin', 'Allemagne');
 
 
 
