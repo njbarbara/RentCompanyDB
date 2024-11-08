@@ -52,5 +52,17 @@ INSERT INTO Produit VALUES
 ('P004', 'Table de mixage', 'Sonorisation', 'Pioneer', 'TM-400', 500.00, 'LCHU0002'),
 ('P005', 'Micro sans fil', 'Sonorisation', 'Shure', 'MS-500', 120.00, 'LCFR0001'),
 ('P006', 'Machine à bulles', 'Effets spéciaux', 'BubblePro', 'MB-600', 180.00, 'LCBR0006'),
-('P006', 'Machine à mousse', 'Effets spéciaux', 'Foamtastik', 'MR-260', 180.00, 'LCJP0001');
+('P007', 'Machine à mousse', 'Effets spéciaux', 'Foamtastik', 'MR-260', 180.00, 'LCJP0001');
+
+
+
+INSERT INTO Appartient VALUES
+('P001', 'LCGE0004'),
+('P002', 'LCUS0005'),
+('P003','LCHU0002'),
+('P004', 'LCHU0002'),
+('P005', 'LCFR0001'),
+('P006','LCBR0006'),
+('P007','LCJP0001');
+
 
