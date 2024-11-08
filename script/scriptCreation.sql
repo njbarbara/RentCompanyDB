@@ -24,7 +24,7 @@ A faire :
 */
 
 CREATE TABLE Fournisseur(
-    idFournisseur char(10) PRIMARY KEY,
+    idFournisseur char(8) PRIMARY KEY,
     nomFournisseur varchar(30) NOT NULL UNIQUE,
     codePostal numeric(10),
     ville varchar(30),
@@ -36,15 +36,15 @@ CREATE TABLE Fournisseur(
 );
 
 CREATE TABLE Specificite(
-    idSpecifite char(10) PRIMARY KEY,
-    puissanceSonore numeric(6,2) DEFAULT 0,
-    amperage numeric(6,2) DEFAULT 0,
-    puissanceLumineuse numeric(6,2) DEFAULT 0
+    idSpecifite char(8) PRIMARY KEY,
+    puissanceSonore numeric(6,2) DEFAULT NULL,
+    amperage numeric(6,2) DEFAULT NULL,
+    puissanceLumineuse numeric(6,2) DEFAULT NULL
 );
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Stock(
-    idStock char(10) PRIMARY KEY,
+    idStock char(8) PRIMARY KEY,
     rue varchar(30),
     codePostal numeric(10),
     ville varchar(30) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE Stock(
 );
 
 CREATE TABLE Client(
-    idClient char(10) PRIMARY KEY,
+    idClient char(8) PRIMARY KEY,
     nomClient varchar(30) NOT NULL UNIQUE,
     rue varchar(30) NOT NULL,
     codePostal numeric(10),
@@ -75,7 +75,7 @@ CREATE TABLE Location(
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Produit(
-    idProduit char(20) PRIMARY KEY,
+    idProduit char(8) PRIMARY KEY,
     nomProduit varchar(30) NOT NULL,
     typeProduit varchar(30) NOT NULL,
     marque varchar(30) NOT NULL,
