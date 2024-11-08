@@ -59,19 +59,19 @@ CREATE TABLE Client(
     ville varchar(30) NOT NULL,
     pays varchar(30) NOT NULL,
     noTel numeric(20),
-    email varchar(30),
+    email varchar(40),
     CHECK(noTel IS NOT NULL OR email IS NOT NULL)
 
 );
 
 CREATE TABLE Location(
-    idLocation char(20) PRIMARY KEY,
+    idLocation char(8) PRIMARY KEY,
     dateDebut date NOT NULL,
     dateFin date NOT NULL, 
-    prix numeric(6,2) NOT NULL,
+    prix numeric(7,2) NOT NULL,
     idClient char(10),
     FOREIGN KEY (idClient) REFERENCES Client(idClient)
-);
+); 
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Produit(
@@ -79,23 +79,22 @@ CREATE TABLE Produit(
     nomProduit varchar(30) NOT NULL,
     typeProduit varchar(30) NOT NULL,
     marque varchar(30) NOT NULL,
-    reference varchar(30) NOT NULL,
     prix numeric(8,2) NOT NULL,
     idLocation char(20),
     FOREIGN KEY (idLocation) REFERENCES Location(idLocation)
 );
 
 CREATE TABLE Appartient(
-    idProduit char(20),
-    idStock char(10),
+    idProduit char(8),
+    idStock char(8),
     PRIMARY KEY(idProduit, idStock),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idStock) REFERENCES Stock(idStock)
 );
 
 CREATE TABLE Fournit(
-    idFournisseur char(10),
-    idProduit char(20),
+    idFournisseur char(8),
+    idProduit char(8),
     DateFournit date,
     PRIMARY KEY(idProduit, idFournisseur),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
@@ -103,8 +102,8 @@ CREATE TABLE Fournit(
 );
 
 CREATE TABLE Possede(
-    idProduit char(10),
-    idSpecifite varchar(30),
+    idProduit char(8),
+    idSpecifite varchar(8),
     PRIMARY KEY(idProduit, idSpecifite),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idSpecifite) REFERENCES Specificite(idSpecifite)
