@@ -33,3 +33,16 @@ INSERT INTO Client VALUES
 ('USC00003', 'Lollapalooza', 'Grant Park', NULL, 'Chicago', 'États-Unis', 17734440600, 'info@lollapalooza.com'),
 ('FRC00001', 'Hellfest Productions', 'Rue du Champ Louet', 44190, 'Clisson', 'France', 330251887950, 'info@hellfest.fr'),
 ('GEC00011', 'Wacken Open Air', 'Hauptstraße', NULL, 'Wacken', 'Allemagne', 494822110, 'info@wacken.com');
+
+
+
+
+INSERT INTO Produit VALUES
+('P001', 'Enceinte', 'Sonorisation', 'Bose', 'EN-100', 150.00, ''),
+('P002', 'Canon à fumée', 'Effets spéciaux', 'SmokeMaster', 'CF-200', 300.00, ''),
+('P003', 'Projecteur LED', 'Éclairage', 'Philips', 'PJ-300', 200.00, ''),
+('P004', 'Table de mixage', 'Sonorisation', 'Pioneer', 'TM-400', 500.00, ''),
+('P005', 'Micro sans fil', 'Sonorisation', 'Shure', 'MS-500', 120.00, ''),
+('P006', 'Machine à bulles', 'Effets spéciaux', 'BubblePro', 'MB-600', 180.00, '');
+
+
