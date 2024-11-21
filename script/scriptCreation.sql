@@ -102,6 +102,15 @@ CREATE TABLE Fournit(
     FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur)
 );
 
+CREATE TABLE Contient(
+    idProduit char(8),
+    idLocation char(8),
+    quantite numeric(6),
+    PRIMARY KEY(idProduit, idLocation),
+    FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
+    FOREIGN KEY (idLocation) REFERENCES Location(idLocation)    
+);
+
 CREATE TABLE Possede(
     idProduit char(8),
     idSpecifite varchar(8),
