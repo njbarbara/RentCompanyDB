@@ -80,8 +80,8 @@ CREATE TABLE Produit(
     typeProduit varchar(30) NOT NULL,
     marque varchar(30) NOT NULL,
     prix numeric(8,2) NOT NULL,
-    idLocation char(20),
-    FOREIGN KEY (idLocation) REFERENCES Location(idLocation)
+    idSpecifite char(8),
+    FOREIGN KEY (idSpecifite) REFERENCES Specificite(idSpecifite)
 );
 
 CREATE TABLE Appartient(
