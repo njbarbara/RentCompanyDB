@@ -53,27 +53,47 @@ INSERT INTO location VALUES
 
 
 INSERT INTO Produit VALUES
-('PRD00001', 'Flexible Array F1 modèle 812', 'Enceinte ', 'Bose', 1349.00, 'LCFR0001'),
-('PRD00002', 'HeavyFog2000C', 'Machine à fumer', 'SparklersClub', 899.00, 'LCFR0001'),
-('PRD00003', 'K3', 'Enceinte', 'L-acoustics', 20000.00, 'LCGE0004'),
-('PRD00004', 'CSD-R7 Demo', 'Table de mixage', 'Yamaha', 70000.00, 'LCGE0004'),
-('PRD00005', 'MA Lighting grandMA3 full-size', 'Console de éclairage', 'MA Lightning', 64690.00, 'LCGE0004'),
-('PRD00006', 'FLX S48 1024 canaux console DMX', 'Console de éclairage', 'Zero 88', 3055.00, 'LCUS0005'),
-('PRD00007', 'Midi-B FX', 'éclairage', 'CLAYPAKY', 1500.00, 'LCUS0005'),
-('PRD00008', 'HY B-Eye K25 / TEATRO', 'éclairage', 'CLAYPAKY', 1400.00, 'LCGE0004');
+('PRD00001', 'Flexible Array F1 modèle 812', 'Enceinte ', 'Bose', 1349.00, 'SPE00001'),
+('PRD00002', 'HeavyFog2000C', 'Machine à fumer', 'SparklersClub', 899.00, 'SPE00002'),
+('PRD00003', 'K3', 'Enceinte', 'L-acoustics', 20000.00, 'SPE00003'),
+('PRD00004', 'CSD-R7 Demo', 'Table de mixage', 'Yamaha', 70000.00, 'SPE00004'),
+('PRD00005', 'MA Lighting grandMA3 full-size', 'Console de éclairage', 'MA Lightning', 64690.00, 'SPE00005'),
+('PRD00006', 'FLX S48 1024 canaux console DMX', 'Console de éclairage', 'Zero 88', 3055.00, 'SPE00006'),
+('PRD00007', 'Midi-B FX', 'éclairage', 'CLAYPAKY', 1500.00, 'SPE00007'),
+('PRD00008', 'HY B-Eye K25 / TEATRO', 'éclairage', 'CLAYPAKY', 1400.00, 'SPE00008');
 
 INSERT INTO Spécificité VALUES
-('SPE00001', )
+('SPE00001', 1000, 132, NULL),
+('SPE00002', 1000, NULL, NULL),
+('SPE00003', 1000, 143, NULL),
+('SPE00004', 400, NULL, NULL),
+('SPE00005', 300, NULL, NULL),
+('SPE00006', 100, NULL, NULL),
+('SPE00007', 830, NULL, 11400),
+('SPE00008', 1250, NULL, 16100),
 
 
 INSERT INTO Appartient VALUES
-('P001', 'LCGE0004'),
-('P002', 'LCUS0005'),
-('P003','LCHU0002'),
-('P004', 'LCHU0002'),
-('P005', 'LCFR0001'),
-('P006','LCBR0006'),
-('P007','LCJP0001');
+('PRD00001', 'FRS00002'),
+('PRD00002', 'ESS00001'),
+('PRD00003','JPS00001'),
+('PRD00004', 'GES00011'),
+('PRD00005', 'BES00001'),
+('PRD00006','UKS00001'),
+('PRD00007','BRS00001');
+
+
+INSERT INTO Fournit VALUES
+()
+()
+()
+()
+()
+()
+()
+()
+
+
 
 
 INSERT INTO Contient VALUES

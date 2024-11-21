@@ -1,4 +1,4 @@
-DROP TABLE Possede;
+DROP TABLE Contient;
 DROP TABLE Fournit;
 DROP TABLE Appartient;
 DROP TABLE Produit;
