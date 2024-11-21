@@ -41,8 +41,7 @@ INSERT INTO Client VALUES
 ('FRC00001', 'Hellfest Productions', 'Rue du Champ Louet', 44190, 'Clisson', 'France', 330251887950, 'info@hellfest.fr'),
 ('GEC00011', 'Wacken Open Air', 'Hauptstraße', NULL, 'Wacken', 'Allemagne', 494822110, 'info@wacken.com');
 
-INSERT INTO Spécificité VALUES
-('SPE00001', )
+
 
 INSERT INTO location VALUES
 ('LCFR0001', '0224-06-25', '2024-07-02', 01567.89, 'FRC00001'),
@@ -63,7 +62,8 @@ INSERT INTO Produit VALUES
 ('PRD00007', 'Midi-B FX', 'éclairage', 'CLAYPAKY', 1500.00, 'LCUS0005'),
 ('PRD00008', 'HY B-Eye K25 / TEATRO', 'éclairage', 'CLAYPAKY', 1400.00, 'LCGE0004');
 
-
+INSERT INTO Spécificité VALUES
+('SPE00001', )
 
 
 INSERT INTO Appartient VALUES

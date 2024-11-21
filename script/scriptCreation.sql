@@ -37,8 +37,8 @@ CREATE TABLE Fournisseur(
 
 CREATE TABLE Specificite(
     idSpecifite char(8) PRIMARY KEY,
-    puissanceSonore numeric(6,2) DEFAULT NULL,
     puissanceElectrique numeric(6,2) DEFAULT NULL,
+    puissanceSonore numeric(6,2) DEFAULT NULL,
     puissanceLumineuse numeric(6,2) DEFAULT NULL
 );
 
