@@ -111,12 +111,4 @@ CREATE TABLE Contient(
     FOREIGN KEY (idLocation) REFERENCES Location(idLocation)    
 );
 
-CREATE TABLE Possede(
-    idProduit char(8),
-    idSpecifite varchar(8),
-    PRIMARY KEY(idProduit, idSpecifite),
-    FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
-    FOREIGN KEY (idSpecifite) REFERENCES Specificite(idSpecifite)
-);
-
 \d
