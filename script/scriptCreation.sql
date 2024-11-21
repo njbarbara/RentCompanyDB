@@ -96,6 +96,7 @@ CREATE TABLE Fournit(
     idFournisseur char(8),
     idProduit char(8),
     DateFournit date,
+    quantité numeric,
     PRIMARY KEY(idProduit, idFournisseur),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur)
