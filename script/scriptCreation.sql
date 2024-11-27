@@ -1,12 +1,12 @@
 DROP TABLE Contient;
 DROP TABLE Fournit;
 DROP TABLE Appartient;
-DROP TABLE Produit;
 DROP TABLE Location;
-DROP TABLE Client;
 DROP TABLE Stock;
-DROP TABLE Specificite;
+DROP TABLE Client;
 DROP TABLE Fournisseur;
+DROP TABLE Produit;
+DROP TABLE Specificite;
 
 /*
 Modif : 
@@ -37,9 +37,9 @@ CREATE TABLE Fournisseur(
 
 CREATE TABLE Specificite(
     idSpecifite char(8) PRIMARY KEY,
-    puissanceElectrique numeric(6,2) DEFAULT NULL,
-    puissanceSonore numeric(6,2) DEFAULT NULL,
-    puissanceLumineuse numeric(6,2) DEFAULT NULL
+    puissanceElectrique numeric(8,2) DEFAULT NULL,
+    puissanceSonore numeric(8,2) DEFAULT NULL,
+    puissanceLumineuse numeric(8,2) DEFAULT NULL
 );
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
@@ -76,8 +76,8 @@ CREATE TABLE Location(
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Produit(
     idProduit char(8) PRIMARY KEY,
-    nomProduit varchar(30) NOT NULL,
-    typeProduit varchar(30) NOT NULL,
+    nomProduit varchar(40) NOT NULL,
+    typeProduit varchar(40) NOT NULL,
     marque varchar(30) NOT NULL,
     prix numeric(8,2) NOT NULL,
     idSpecifite char(8),
@@ -87,6 +87,7 @@ CREATE TABLE Produit(
 CREATE TABLE Appartient(
     idProduit char(8),
     idStock char(8),
+    quantite numeric(6),
     PRIMARY KEY(idProduit, idStock),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idStock) REFERENCES Stock(idStock)
