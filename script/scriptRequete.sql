@@ -34,7 +34,7 @@ ainsi que leur prix de location
 hors taxe (HT) et taxes comprises (TTC).
 */
 
-SELECT f.prixTTC AS PRIX-TTC, f.prixTTC/(1+tva) AS PRIX-HT, 
+SELECT f.prixTTC AS PRIX-TTC, f.prixHT/(1+tva) AS PRIX-HT, 
 FROM Fournisseur f 
 JOIN Fournir ON Fournir.idFournisseur = f.idFournisseur
 JOIN Produit p ON p.idProduit
@@ -46,15 +46,19 @@ WHERE f.nomFournisseur = "PrestigeAudio";
 /*
 Q5. Y a-t-il des articles qui n’ont jamais été loués ? Si oui, lesquels ?
 */
-SELECT P.*
-FROM Produit p
-JOIN Contient c ON c.idProduit = p.idProduit
-JOIN Location l ON l.idProduit = c.idProduit;
+
+SELECT * 
+FROM Produit
+WHERE idProduit NOT IN (SELECT idProduit
+                        From Contient);
+
 /*
 Q6. Quel est le produit le plus cher ? Le moins cher ?
 */
 
-/* je p le faire avec un sous select */
+/*Pour le prix le plus cher  */
+select * from Produit where prix = (select max(p.prix) from Produit p);
 
-SELECT max(prix) AS prix_le_plus_cher, p.*
-FROM Produit;
+/*Pour le prix le moins cher */
+select * from Produit where prix = (select min(p.prix) from Produit p);
+
