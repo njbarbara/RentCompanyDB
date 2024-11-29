@@ -105,7 +105,7 @@ CREATE TABLE Fournit(
     PRIMARY KEY(idProduit, idFournisseur),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur), 
-    CHECK (quantite >= 0)
+    CHECK (quantite >= 0 AND DateFournit <= CURRENT_DATE)
 );
 
 CREATE TABLE Contient(
