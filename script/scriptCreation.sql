@@ -75,7 +75,7 @@ CREATE TABLE Location(
     CHECK (dateDebut < dateFin AND prixTTC >= 0)
 ); 
 
-/*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
+
 CREATE TABLE Produit(
     idProduit char(8) PRIMARY KEY,
     nomProduit varchar(40) NOT NULL,
