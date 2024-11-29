@@ -1,3 +1,23 @@
+DELETE FROM Contient;
+DELETE FROM Fournit;
+DELETE FROM Appartient;
+DELETE FROM Location;
+DELETE FROM Stock;
+DELETE FROM Client;
+DELETE FROM Fournisseur;
+DELETE FROM Produit;
+DELETE FROM Specificite;
+
+/*
+A faire : 
+- Il faut que tous les produits est un stock associé 
+- Il faut que tout les produits est un fournisseur associé
+- Il faut laisser des produits qui n'ont jamais encore été loué
+- faire des insertions pour locations y à moins d'une semaine
+- Il faut que prestige audio forunissent des produits 
+- Il faut que tt les produits récemment loué ne soient plus en stock
+*/
+
 /*Ce script n'est pas abouti et contient peut-être des erreurs (!!!)*/
 
 INSERT INTO Fournisseur VALUES 
@@ -43,13 +63,23 @@ INSERT INTO Client VALUES
 
 
 
-INSERT INTO location VALUES
+INSERT INTO Location VALUES
 ('LCFR0001', '0224-06-25', '2024-07-02', 01567.89, 'FRC00001'),
 ('LCUS0005', '2020-09-05', '2024-09-05', 99999.99, 'USC00001'),
 ('LCGE0004', '2024-10-18', '2024-10-31', 00600.00, 'GEC00011'),
 ('LCJP0001', '2024-12-30', '2025-01-03', 02789.12, 'JPC00001'),
 ('LCHU0002', '2024-05-01', '2024-06-01', 49396.78, 'HUC00001'),
 ('LCBR0006', '2024-03-12', '2024-05-07', 02479.15, 'BRC00001');
+
+INSERT INTO Specificite VALUES
+('SPE00001', 1000, 132, NULL),
+('SPE00002', 1000, NULL, NULL),
+('SPE00003', 1000, 143, NULL),
+('SPE00004', 400, NULL, NULL),
+('SPE00005', 300, NULL, NULL),
+('SPE00006', 100, NULL, NULL),
+('SPE00007', 830, NULL, 11400),
+('SPE00008', 1250, NULL, 16100);  
 
 
 INSERT INTO Produit VALUES
@@ -74,15 +104,16 @@ INSERT INTO Spécificité VALUES
 
 
 INSERT INTO Appartient VALUES
-('PRD00001', 'FRS00002'),
-('PRD00002', 'ESS00001'),
-('PRD00003', 'JPS00001'),
-('PRD00004', 'GES00011'),
-('PRD00005', 'BES00001'),
-('PRD00006', 'UKS00001'),
-('PRD00007', 'BRS00001');
+('PRD00001', 'FRS00002', 30),
+('PRD00002', 'ESS00001', 50),
+('PRD00003', 'JPS00001', 70),
+('PRD00004', 'GES00011', 0),
+('PRD00005', 'BES00001', 100),
+('PRD00006', 'UKS00001', 300),
+('PRD00007', 'BRS00001', 400),
+('PRD00008', 'BRS00001', 2000);
 
-
+/*
 INSERT INTO Fournit VALUES
 ()
 ()
@@ -93,15 +124,14 @@ INSERT INTO Fournit VALUES
 ()
 ()
 
+*/
 
-
-
-INSERT INTO Contient VALUES
-('PRD00001', 'LCFR0001'),
-('PRD00004', 'LCBR0006'),
-('PRD00002', 'LCJP0001'),
-('PRD00006', 'LCUS0005'),
-('PRD00008', 'LCFR0001'),
-('PRD00003', 'LCGE0004'),
-('PRD00005', 'LCHU0002'),
-('PRD00007', 'LCUS0005');
+INSERT INTO Appartient VALUES
+('PRD00001', 'LCFR0001', 3),
+('PRD00004', 'LCBR0006', 6),
+('PRD00002', 'LCJP0001', 2),
+('PRD00006', 'LCUS0005', 4),
+('PRD00008', 'LCFR0001', 5),
+('PRD00003', 'LCGE0004', 6),
+('PRD00005', 'LCHU0002', 7),
+('PRD00007', 'LCUS0005', 1);
