@@ -8,7 +8,15 @@ DELETE FROM Fournisseur;
 DELETE FROM Produit;
 DELETE FROM Specificite;
 
-
+/*
+A faire : 
+- Il faut que tous les produits est un stock associé 
+- Il faut que tout les produits est un fournisseur associé
+- Il faut laisser des produits qui n'ont jamais encore été loué
+- faire des insertions pour locations y à moins d'une semaine
+- Il faut que prestige audio forunissent des produits 
+- Il faut que tt les produits récemment loué ne soient plus en stock
+*/
 
 /*Ce script n'est pas abouti et contient peut-être des erreurs (!!!)*/
 
@@ -56,12 +64,12 @@ INSERT INTO Client VALUES
 
 
 INSERT INTO Location VALUES
-('LCFR0001', '0224-06-25', '2024-07-02', 01567.89, 'FRC00001'),
-('LCUS0005', '2020-09-05', '2024-09-05', 99999.99, 'USC00001'),
-('LCGE0004', '2024-10-18', '2024-10-31', 00600.00, 'GEC00011'),
-('LCJP0001', '2024-12-30', '2025-01-03', 02789.12, 'JPC00001'),
-('LCHU0002', '2024-05-01', '2024-06-01', 49396.78, 'HUC00001'),
-('LCBR0006', '2024-03-12', '2024-05-07', 02479.15, 'BRC00001');
+('FRL00001', '2024-06-25', '2024-07-02', 01567.89, 'FRC00001'),
+('USL00005', '2020-09-05', '2024-09-05', 99999.99, 'USC00001'),
+('GEL00004', '2024-10-18', '2024-10-31', 00600.00, 'GEC00011'),
+('JPL00001', '2024-12-30', '2025-01-03', 02789.12, 'JPC00001'),
+('HUL00002', '2024-05-01', '2024-06-01', 49396.78, 'HUC00001'),
+('BRL00006', '2024-03-12', '2024-05-07', 02479.15, 'BRC00001');
 
 INSERT INTO Specificite VALUES
 ('SPE00001', 1000, 132, NULL),
@@ -94,9 +102,17 @@ INSERT INTO Appartient VALUES
 ('PRD00007', 'BRS00001', 400),
 ('PRD00008', 'BRS00001', 2000);
 
-
+/*A faire pour chaque location */
 INSERT INTO Contient VALUES
-('PRD00001', 'LCFR0001'),
+('PRD00001', 'FRL00001', 9),
+('PRD00001', 'USL00005', 40),
+('PRD00002', 'FRL00001', 30),
+('PRD00002', 'USL00005', 10),
+('PRD00002', 'GEL00004', 45),
+('PRD00006', 'JPL00001', 456),
+('PRD00007', 'HUL00002', 109),
+('PRD00008', 'BRL00006', 350),
+('PRD00004', 'JPL00001', 100);
 
 /*
 INSERT INTO Fournit VALUES

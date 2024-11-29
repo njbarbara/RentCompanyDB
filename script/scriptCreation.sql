@@ -8,19 +8,20 @@ DROP TABLE Fournisseur;
 DROP TABLE Produit;
 DROP TABLE Specificite;
 
+
 /*
-Modif : 
-- tous les id sont des char
-- ajout de la date dans la table fournir
-- num de tel pas nécessaire
+ - Le prix TTC peut être calculé grâce aux prix ht, doit on faire un attribut prix HT ?
+ - Est il nécessaire de créer une table pays pour la valeur des taxes ?
+ - Une table adresse est elle nécessaire ? 
+ - DOIT ON SAUV LA TVA
 */
 
 /*
-A faire : 
-- ajouter date à la table fournir sur le mcd
-- retirer la quantité au produit sur le mcd
-- continuer les insertions
-- ajout de contraintes (supplémentaires)
+L’étude du système d’information porte sur :
+— la location des produits aux clients,
+— la gestion des stocks de ces produits,
+— la gestion des clients,
+— la gestion des fournisseurs de ces produits.
 */
 
 CREATE TABLE Fournisseur(
@@ -39,7 +40,7 @@ CREATE TABLE Specificite(
     idSpecifite char(8) PRIMARY KEY,
     puissanceElectrique numeric(8,2) DEFAULT NULL,
     puissanceSonore numeric(8,2) DEFAULT NULL,
-    puissanceLumineuse numeric(8,2) DEFAULT NULL
+    puissanceLumineuse numeric(8,2) DEFAULT NULL,
 );
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
@@ -68,9 +69,10 @@ CREATE TABLE Location(
     idLocation char(8) PRIMARY KEY,
     dateDebut date NOT NULL,
     dateFin date NOT NULL, 
-    prix numeric(7,2) NOT NULL,
+    prixTTC numeric(7,2) NOT NULL,
     idClient char(10),
-    FOREIGN KEY (idClient) REFERENCES Client(idClient)
+    FOREIGN KEY (idClient) REFERENCES Client(idClient),
+    CHECK (dateDebut < dateFin AND prixTTC >= 0)
 ); 
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
@@ -79,9 +81,10 @@ CREATE TABLE Produit(
     nomProduit varchar(40) NOT NULL,
     typeProduit varchar(40) NOT NULL,
     marque varchar(30) NOT NULL,
-    prix numeric(8,2) NOT NULL,
-    idSpecifite char(8),
-    FOREIGN KEY (idSpecifite) REFERENCES Specificite(idSpecifite)
+    prixTTC numeric(8,2) NOT NULL,
+    idSpecificite char(8),
+    FOREIGN KEY (idSpecificite) REFERENCES Specificite(idSpecificite),
+    CHECK (prixTTC >= 0)
 );
 
 CREATE TABLE Appartient(
@@ -90,7 +93,8 @@ CREATE TABLE Appartient(
     quantite numeric(6),
     PRIMARY KEY(idProduit, idStock),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
-    FOREIGN KEY (idStock) REFERENCES Stock(idStock)
+    FOREIGN KEY (idStock) REFERENCES Stock(idStock),
+    CHECK (quantite >= 0)
 );
 
 CREATE TABLE Fournit(
@@ -100,7 +104,8 @@ CREATE TABLE Fournit(
     quantite numeric(6),
     PRIMARY KEY(idProduit, idFournisseur),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
-    FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur)
+    FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur), 
+    CHECK (quantite >= 0)
 );
 
 CREATE TABLE Contient(
@@ -109,7 +114,8 @@ CREATE TABLE Contient(
     quantite numeric(6),
     PRIMARY KEY(idProduit, idLocation),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
-    FOREIGN KEY (idLocation) REFERENCES Location(idLocation)    
+    FOREIGN KEY (idLocation) REFERENCES Location(idLocation) 
+    /*CHECK (quantite >= 0) pas nécessaire car un produit ne contient pas nécessairement de produits*/
 );
 
 \d
