@@ -83,14 +83,14 @@ INSERT INTO Specificite VALUES
 
 
 INSERT INTO Produit VALUES
-('PRD00001', 'Flexible Array F1 modèle 812', 'Enceinte ', 'Bose', 1349.00, 'SPE00001'),
-('PRD00002', 'HeavyFog2000C', 'Machine à fumer', 'SparklersClub', 899.00, 'SPE00002'),
-('PRD00003', 'K3', 'Enceinte', 'L-acoustics', 20000.00, 'SPE00003'),
-('PRD00004', 'CSD-R7 Demo', 'Table de mixage', 'Yamaha', 70000.00, 'SPE00004'),
-('PRD00005', 'MA Lighting grandMA3 full-size', 'Console de éclairage', 'MA Lightning', 64690.00, 'SPE00005'),
-('PRD00006', 'FLX S48 1024 canaux console DMX', 'Console de éclairage', 'Zero 88', 3055.00, 'SPE00006'),
-('PRD00007', 'Midi-B FX', 'éclairage', 'CLAYPAKY', 1500.00, 'SPE00007'),
-('PRD00008', 'HY B-Eye K25 / TEATRO', 'éclairage', 'CLAYPAKY', 1400.00, 'SPE00008');
+('PRD00001', 'Flexible Array F1 modèle 812', 'Enceinte ', 'Bose', 100, 'SPE00001'),
+('PRD00002', 'HeavyFog2000C', 'Machine à fumer', 'SparklersClub', 120, 'SPE00002'),
+('PRD00003', 'K3', 'Enceinte', 'L-acoustics', 200, 'SPE00003'),
+('PRD00004', 'CSD-R7 Demo', 'Table de mixage', 'Yamaha', 300, 'SPE00004'),
+('PRD00005', 'MA Lighting grandMA3 full-size', 'Console de éclairage', 'MA Lightning', 250, 'SPE00005'),
+('PRD00006', 'FLX S48 1024 canaux console DMX', 'Console de éclairage', 'Zero 88', 75, 'SPE00006'),
+('PRD00007', 'Midi-B FX', 'éclairage', 'CLAYPAKY', 99.9, 'SPE00007'),
+('PRD00008', 'HY B-Eye K25 / TEATRO', 'éclairage', 'CLAYPAKY', 65, 'SPE00008');
 
 INSERT INTO Spécificité VALUES
 ('SPE00001', 1000, 132, NULL),
@@ -100,7 +100,7 @@ INSERT INTO Spécificité VALUES
 ('SPE00005', 300, NULL, NULL),
 ('SPE00006', 100, NULL, NULL),
 ('SPE00007', 830, NULL, 11400),
-('SPE00008', 1250, NULL, 16100),
+('SPE00008', 1250, NULL, 16100);
 
 
 INSERT INTO Appartient VALUES
@@ -115,14 +115,14 @@ INSERT INTO Appartient VALUES
 
 
 INSERT INTO Fournit VALUES
-('FRF00001', 'PRD00001', '2023-01-12', 25),
-('FRF00003', 'PRD00001', '2024-05-25', 5),
-('USF00003', 'PRD00007', '2023-03-18', 200),
-('JPF00001', 'PRD00004', '2024-08-23', 5),
-('CNF00001', 'PRD00007', '2023-09-30', 200),
-('USF00001', 'PRD00003', '2024-08-14', 70),
-('HUS00001', 'PRD00005', '2023-05-07', 70),
-('ESS00001', 'PRD00004', '2023-09-11', 5);
+('FRF00001', 'PRD00001', '2023-01-12', 25, 1349),
+('FRF00003', 'PRD00001', '2024-05-25', 5, 1400),
+('USF00003', 'PRD00007', '2023-03-18', 200, 1500),
+('JPF00001', 'PRD00004', '2024-08-23', 5, 70000),
+('CNF00001', 'PRD00007', '2023-09-30', 200, 1500),
+('USF00001', 'PRD00003', '2024-08-14', 70, 8999.9),
+('HUS00001', 'PRD00005', '2023-05-07', 70, 64690),
+('ESS00001', 'PRD00004', '2023-09-11', 5, 69000);
 
 
 INSERT INTO Contient VALUES
