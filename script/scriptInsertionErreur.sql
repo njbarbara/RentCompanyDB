@@ -21,3 +21,13 @@ INSERT INTO Produit VALUES
 ('PRD00001', 'Flexible Array F1 modèle 812', 'Enceinte ', 'Bose', -1349, 'SPE00001');
 
 
+INSERT INTO Appartient VALUES
+('PRD00001', 'FRS00002', -2);
+
+
+INSERT INTO Fournit VALUES
+('FRF00001', 'PRD00001', '2023-01-12', -25);
+
+
+INSERT INTO Contient VALUES
+('PRD00001', 'LCFR0001', -23);
