@@ -48,7 +48,8 @@ Q5. Y a-t-il des articles qui n’ont jamais été loués ? Si oui, lesquels ?
 */
 SELECT P.*
 FROM Produit p
-JOIN Contient c ON c.idProduit = p.idProduit;
+JOIN Contient c ON c.idProduit = p.idProduit
+JOIN Location l ON l.idProduit = c.idProduit;
 /*
 Q6. Quel est le produit le plus cher ? Le moins cher ?
 */
