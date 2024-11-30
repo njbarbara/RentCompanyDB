@@ -37,10 +37,10 @@ CREATE TABLE Fournisseur(
 );
 
 CREATE TABLE Specificite(
-    idSpecifite char(8) PRIMARY KEY,
+    idSpecificite char(8) PRIMARY KEY,
     puissanceElectrique numeric(8,2) DEFAULT NULL,
     puissanceSonore numeric(8,2) DEFAULT NULL,
-    puissanceLumineuse numeric(8,2) DEFAULT NULL,
+    puissanceLumineuse numeric(8,2) DEFAULT NULL
 );
 
 /*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
@@ -70,7 +70,7 @@ CREATE TABLE Location(
     dateDebut date NOT NULL,
     dateFin date NOT NULL, 
     prixTTC numeric(7,2) NOT NULL,
-    idClient char(10),
+    idClient char(8),
     FOREIGN KEY (idClient) REFERENCES Client(idClient),
     CHECK (dateDebut < dateFin AND prixTTC >= 0)
 ); 
@@ -116,7 +116,7 @@ CREATE TABLE Contient(
     PRIMARY KEY(idProduit, idLocation),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idLocation) REFERENCES Location(idLocation) 
-    /*CHECK (quantite >= 0) pas nécessaire car un produit ne contient pas nécessairement de produits*/
+    CHECK (quantite >= 0) /*pas nécessaire car un produit ne contient pas nécessairement de produits*/
 );
 
 \d
