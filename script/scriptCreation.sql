@@ -7,14 +7,8 @@ DROP TABLE Client;
 DROP TABLE Fournisseur;
 DROP TABLE Produit;
 DROP TABLE Specificite;
+DROP TABLE Pays;
 
-
-/*
- - Le prix TTC peut être calculé grâce aux prix ht, doit on faire un attribut prix HT ?
- - Est il nécessaire de créer une table pays pour la valeur des taxes ?
- - Une table adresse est elle nécessaire ? 
- - DOIT ON SAUV LA TVA
-*/
 
 /*
 L’étude du système d’information porte sur :
@@ -24,15 +18,24 @@ L’étude du système d’information porte sur :
 — la gestion des fournisseurs de ces produits.
 */
 
+CREATE TABLE Pays(
+    idPays char(8) PRIMARY KEY,
+    pays varchar(30) NOT NULL,
+    tva numeric(3,2) NOT NULL
+);
+
+
+
 CREATE TABLE Fournisseur(
     idFournisseur char(8) PRIMARY KEY,
     nomFournisseur varchar(30) NOT NULL UNIQUE,
     codePostal numeric(10),
     ville varchar(30),
-    pays varchar(30) NOT NULL,
     email varchar(30),
     rue varchar(30) NOT NULL,
     noTel numeric(20),
+    idPays char(8),
+    FOREIGN KEY (idPays) REFERENCES Pays(idPays),
     CHECK(noTel IS NOT NULL OR email IS NOT NULL)
 );
 
@@ -43,13 +46,13 @@ CREATE TABLE Specificite(
     puissanceLumineuse numeric(8,2) DEFAULT NULL
 );
 
-/*Pk quantité ?, on peut faire un count dans le select pour compter les produits*/
 CREATE TABLE Stock(
     idStock char(8) PRIMARY KEY,
     rue varchar(30),
     codePostal numeric(10),
     ville varchar(30) NOT NULL,
-    pays varchar(30) NOT NULL
+    idPays char(8),
+    FOREIGN KEY (idPays) REFERENCES Pays(idPays)
 );
 
 CREATE TABLE Client(
@@ -58,21 +61,21 @@ CREATE TABLE Client(
     rue varchar(30) NOT NULL,
     codePostal numeric(10),
     ville varchar(30) NOT NULL,
-    pays varchar(30) NOT NULL,
     noTel numeric(20),
-    email varchar(40),
-    CHECK(noTel IS NOT NULL OR email IS NOT NULL)
-
+    email varchar(40),        
+    idPays char(8),
+    CHECK(noTel IS NOT NULL OR email IS NOT NULL),
+    FOREIGN KEY (idPays) REFERENCES Pays(idPays)
 );
 
 CREATE TABLE Location(
     idLocation char(8) PRIMARY KEY,
     dateDebut date NOT NULL,
     dateFin date NOT NULL, 
-    prixTTC numeric(7,2) NOT NULL,
+    prixHT numeric(7,2) NOT NULL,
     idClient char(8),
     FOREIGN KEY (idClient) REFERENCES Client(idClient),
-    CHECK (dateDebut < dateFin AND prixTTC >= 0)
+    CHECK (dateDebut < dateFin AND prixHT >= 0)
 ); 
 
 
@@ -81,10 +84,10 @@ CREATE TABLE Produit(
     nomProduit varchar(40) NOT NULL,
     typeProduit varchar(40) NOT NULL,
     marque varchar(30) NOT NULL,
-    prixTTC numeric(8,2) NOT NULL,
+    prixHT numeric(8,2) NOT NULL,
     idSpecificite char(8),
     FOREIGN KEY (idSpecificite) REFERENCES Specificite(idSpecificite),
-    CHECK (prixTTC >= 0)
+    CHECK (prixHT >= 0)
 );
 
 CREATE TABLE Appartient(
@@ -102,7 +105,7 @@ CREATE TABLE Fournit(
     idProduit char(8),
     DateFournit date,
     quantite numeric(6),
-    prixTTC numeric(8,2) NOT NULL,
+    prixHT numeric(8,2) NOT NULL,
     PRIMARY KEY(idProduit, idFournisseur),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
     FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur), 
@@ -115,8 +118,8 @@ CREATE TABLE Contient(
     quantite numeric(6),
     PRIMARY KEY(idProduit, idLocation),
     FOREIGN KEY (idProduit) REFERENCES Produit(idProduit),
-    FOREIGN KEY (idLocation) REFERENCES Location(idLocation) 
-    CHECK (quantite >= 0) /*pas nécessaire car un produit ne contient pas nécessairement de produits*/
+    FOREIGN KEY (idLocation) REFERENCES Location(idLocation),
+    CHECK (quantite > 0) 
 );
 
 \d

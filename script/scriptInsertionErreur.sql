@@ -1,8 +1,4 @@
-/*
-A faire : 
-- Tester toutes les contraintes de tables
-- 
-*/
+/* Ce script permet de tester les contraintes de table */
 
 INSERT INTO Fournisseur VALUES 
 ('FRF00001', 'Focal', 70123, 'Paris', 'France', NULL, 'Rue du sénat', NULL);
