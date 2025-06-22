@@ -1,5 +1,5 @@
-# Bienvenue sur le dépot de la saé 1.04
-**Ceci est un projet réalisé en trinome dont l'objectif était de réaliser une base de donnée pour une entreprise ficitve de location de matérielle évènementiel.**
+# Bienvenue sur le dépot du projet de base de données
+**Ceci est un projet réalisé en trinome dont l'objectif était de créer une base de donnée pour une entreprise ficitve de location de matérielle évènementiel.**
 
 ## 🌎 Trouver les rubiques suivantes 
 * **MCD :** _https://app.diagrams.net/?src=about#G14wgSlfsdmoUAe63Y8lmFH119tPinZ9WE#%7B%22pageId%22%3A%22x0MB1oMdC8cpfi41FHgL%22%7D_
